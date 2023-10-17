@@ -12,7 +12,7 @@ from basic CRUD operations to complex management of payments, attendance etc.
   
 **Clone the repository**  
 
--git clone https://github.com/vuklalovic194/MagnumAPI.git
+-git clone https://github.com/vuklalovic194/MagnumBjjAPI.git
 
 **Navigate to the project directory**  
   
