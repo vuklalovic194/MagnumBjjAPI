@@ -91,14 +91,13 @@ builder.Services.AddSwaggerGen(options =>
 
 
 var app = builder.Build();
-app.UseSwagger();
 
+
+app.UseSwaggerUI();
+app.UseSwagger();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-	app.UseSwaggerUI(options => {
-		options.SwaggerEndpoint("/swagger/v1/swagger.json", "MagnumApi");
-	});
 }
 
 app.UseHttpsRedirection();
