@@ -1,14 +1,17 @@
 ﻿using Magnum_web_application.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Data.Common;
 
 namespace Magnum_web_application.Data
 {
 	public class ApplicationDbContext : DbContext
 	{
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
-        }
+			
+		}
         public DbSet<User> Users { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<TrainingSession> TrainingSessions { get; set;}
@@ -56,6 +59,5 @@ namespace Magnum_web_application.Data
 				.OnDelete(DeleteBehavior.NoAction);
 
 		}
-		
 	}
 }

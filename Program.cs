@@ -36,7 +36,10 @@ builder.Services.AddScoped<IRankService, RankService>();
 
 builder.Services.AddAutoMapper(typeof(MapConfig));
 builder.Services.AddDbContext<ApplicationDbContext>(option => {
-	option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+	option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"), builder =>
+	{
+		builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null); 
+	});
 });
 
 var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
@@ -92,8 +95,11 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+	c.SwaggerEndpoint("../swagger/v1/swagger.json", "Test API V1");
+	c.RoutePrefix = string.Empty;// Set Swagger UI at apps root
+});
 app.UseSwagger();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,6 +1,7 @@
 ﻿using Magnum_web_application.Models;
 using Magnum_web_application.Models.DTO;
 using Magnum_web_application.Service.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Magnum_web_application.Controllers
