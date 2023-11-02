@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Magnum_web_application.Models
+namespace Magnum_API_web_application.Models
 {
 	public class Fee
 	{

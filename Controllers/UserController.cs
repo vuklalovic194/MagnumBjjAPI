@@ -1,12 +1,12 @@
-﻿using Magnum_web_application.Data;
-using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
-using Magnum_web_application.Repository.IRepository;
+﻿using Magnum_API_web_application.Data;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace Magnum_web_application.Controllers
+namespace Magnum_API_web_application.Controllers
 {
 	[Route("api/UserAuth")]
 	[ApiController]

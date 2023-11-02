@@ -1,4 +1,4 @@
-﻿namespace Magnum_web_application.Models.DTO
+﻿namespace Magnum_API_web_application.Models.DTO
 {
     public class LoginRequestDTO
     {

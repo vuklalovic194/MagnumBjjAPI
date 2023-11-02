@@ -1,50 +1,50 @@
-﻿using Magnum_web_application.Models;
-using Magnum_web_application.Repository.IRepository;
-using Magnum_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Repository.IRepository;
+using Magnum_API_web_application.Service.IServices;
 using System.Net;
 
-namespace Magnum_web_application.Service
+namespace Magnum_API_web_application.Service
 {
 	public class FeeService : IFeeService
 	{
-		public ApiResponse apiResponse;
-		private readonly IFeeRepository repository;
-		private readonly IUnpaidMonthRepository unpaidMonthRepository;
+		public ApiResponse _apiResponse;
+		private readonly IFeeRepository _repository;
+		private readonly IUnpaidMonthRepository _unpaidMonthRepository;
 
 		public FeeService(
 			IFeeRepository repository,
 			IUnpaidMonthRepository unpaidMonthRepository)
 		{
-			this.apiResponse = new ApiResponse();
-			this.repository = repository;
-			this.unpaidMonthRepository = unpaidMonthRepository;
+			_apiResponse = new ApiResponse();
+			_repository = repository;
+			_unpaidMonthRepository = unpaidMonthRepository;
 		}
 
 		public async Task<ApiResponse> CreateFeeAsync(int memberId)
 		{
 			try
 			{
-				List<UnpaidMonth> unpaidMonths = await unpaidMonthRepository.GetAllAsync(u => u.MemberId == memberId);
+				List<UnpaidMonth> unpaidMonths = await _unpaidMonthRepository.GetAllAsync(u => u.MemberId == memberId);
 				Fee fee = new Fee();
 
 				if (unpaidMonths.Count > 0)
 				{
 					fee = fee.CreateFee(memberId);
 
-					await repository.CreateAsync(fee);
-					await unpaidMonthRepository.DeleteAsync(unpaidMonths[0]);
-					await repository.SaveAsync();
+					await _repository.CreateAsync(fee);
+					await _unpaidMonthRepository.DeleteAsync(unpaidMonths[0]);
+					await _repository.SaveAsync();
 
-					return apiResponse.Create(fee);
+					return _apiResponse.Create(fee);
 				}
 
-				apiResponse.NotFound(fee);
-				apiResponse.ErrorMessage = "This member has no debt";
-				return apiResponse;
+				_apiResponse.NotFound(fee);
+				_apiResponse.ErrorMessage = "This member has no debt";
+				return _apiResponse;
 			}
 			catch (Exception e)
 			{
-				return apiResponse.Unauthorize(e);
+				return _apiResponse.Unauthorize(e);
 			}
 		}
 
@@ -52,21 +52,21 @@ namespace Magnum_web_application.Service
 		{
 			try
 			{
-				List<Fee> fees = await repository.GetAllAsync(u => u.MemberId == memberId);
+				List<Fee> fees = await _repository.GetAllAsync(u => u.MemberId == memberId);
 				if (fees.Count <= 0)
 				{
-					return apiResponse.NotFound(fees);
+					return _apiResponse.NotFound(fees);
 				}
 
-				await repository.DeleteAsync(fees.Last());
-				await repository.SaveAsync();
+				await _repository.DeleteAsync(fees.Last());
+				await _repository.SaveAsync();
 
-				apiResponse.StatusCode = HttpStatusCode.NoContent;
-				return apiResponse;
+				_apiResponse.StatusCode = HttpStatusCode.NoContent;
+				return _apiResponse;
 			}
 			catch (Exception e)
 			{
-				return apiResponse.Unauthorize(e);
+				return _apiResponse.Unauthorize(e);
 			}
 		}
 		
@@ -74,24 +74,24 @@ namespace Magnum_web_application.Service
 		{
 			try
 			{
-				List<Fee> feeList = await repository.GetAllAsync(u => u.MemberId == memberId);
+				List<Fee> feeList = await _repository.GetAllAsync(u => u.MemberId == memberId);
 
 				if (memberId == 0)
 				{
-					apiResponse.Response = await repository.GetAllAsync();
-					return apiResponse;
+					_apiResponse.Response = await _repository.GetAllAsync();
+					return _apiResponse;
 				}
 
 				if (feeList.Count != 0)
 				{
-					return apiResponse.Get(feeList);
+					return _apiResponse.Get(feeList);
 				}
 
-				return apiResponse.NotFound(feeList);
+				return _apiResponse.NotFound(feeList);
 			}
 			catch (Exception e)
 			{
-				return apiResponse.Unauthorize(e);
+				return _apiResponse.Unauthorize(e);
 			}
 		}
 	}

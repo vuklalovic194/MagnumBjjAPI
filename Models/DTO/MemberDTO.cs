@@ -1,4 +1,4 @@
-﻿namespace Magnum_web_application.Models.DTO
+﻿namespace Magnum_API_web_application.Models.DTO
 {
 	public class MemberDTO
 	{
@@ -7,17 +7,16 @@
 		public string ImageUrl { get; set; }
 		public int PhoneNumber { get; set; }
 		public int Age { get; set; }
-		public string Rank { get; set; }
-		public bool VIP { get; set; } = false;
+		public int Rank { get; set; }
 
-		public void mapMember(MemberDTO updateDTO, Member member)
+		public void mapMember(MemberDTO memberDTO, Member member)
 		{
-			member.Address = updateDTO.Address;
-			member.Name = updateDTO.Name;
-			member.ImageUrl = updateDTO.ImageUrl;
-			member.PhoneNumber = updateDTO.PhoneNumber;
-			member.Age = updateDTO.Age;
-			member.VIP = updateDTO.VIP;
+			member.Address = memberDTO.Address;
+			member.Name = memberDTO.Name;
+			member.ImageUrl = memberDTO.ImageUrl;
+			member.PhoneNumber = memberDTO.PhoneNumber;
+			member.Age = memberDTO.Age;
+			member.RankId = memberDTO.Rank;
 		}
 	}
 }

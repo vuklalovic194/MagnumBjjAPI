@@ -1,12 +1,12 @@
-﻿using Magnum_web_application.Data;
-using Magnum_web_application.Models;
-using Magnum_web_application.Repository.IRepository;
+﻿using Magnum_API_web_application.Data;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Magnum_web_application.Repository
+namespace Magnum_API_web_application.Repository
 {
 	public class Repository<T> : IRepository<T> where T : class
 	{

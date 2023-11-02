@@ -1,6 +1,6 @@
-﻿using Magnum_web_application.Models;
+﻿using Magnum_API_web_application.Models;
 
-namespace Magnum_web_application.Service.IServices
+namespace Magnum_API_web_application.Service.IServices
 {
 	public interface IActiveMemberService
 	{

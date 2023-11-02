@@ -1,6 +1,6 @@
-﻿using Magnum_web_application.Controllers;
+﻿using Magnum_API_web_application.Controllers;
 
-namespace Magnum_web_application.Models
+namespace Magnum_API_web_application.Models
 {
 	public class ActiveMember
 	{

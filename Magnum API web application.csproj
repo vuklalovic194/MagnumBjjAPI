@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Magnum_web_application</RootNamespace>
+    <RootNamespace>Magnum_API_web_application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

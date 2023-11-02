@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
 
-namespace Magnum_web_application
+namespace Magnum_API_web_application
 {
 	public class MapConfig : Profile
 	{

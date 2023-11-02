@@ -1,10 +1,10 @@
-﻿using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
-using Magnum_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Service.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Magnum_web_application.Controllers
+namespace Magnum_API_web_application.Controllers
 {
 	[Route("api/Rank")]
 	[ApiController]
@@ -21,23 +21,16 @@ namespace Magnum_web_application.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetAllRanksByMemberId(int memberId)
+		public async Task<IActionResult> GetAllRanks()
 		{
-			apiResponse = await rankService.GetAllRanksAsync(memberId);
-			return Ok(apiResponse);
-		}
-
-		[HttpGet("{memberId}")]
-		public async Task<IActionResult> GeRankByMemberId(int memberId)
-		{
-			apiResponse = await rankService.GetRankAsync(memberId);
+			apiResponse = await rankService.GetAllRanksAsync();
 			return Ok(apiResponse);
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> CreateRank([FromBody] RankDTO rankDTO, int memberId)
+		public async Task<IActionResult> CreateRank([FromBody] RankDTO rankDTO)
 		{
-			apiResponse = await rankService.CreateRankAsync(rankDTO, memberId);
+			apiResponse = await rankService.CreateRankAsync(rankDTO);
 			return Ok(apiResponse);
 		}
 	}

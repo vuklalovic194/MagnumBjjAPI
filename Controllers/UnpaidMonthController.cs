@@ -1,9 +1,9 @@
-﻿using Magnum_web_application.Models;
-using Magnum_web_application.Service;
-using Magnum_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Service;
+using Magnum_API_web_application.Service.IServices;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Magnum_web_application.Controllers
+namespace Magnum_API_web_application.Controllers
 {
     [Route("api/UnpaidMonth")]
 	[ApiController]

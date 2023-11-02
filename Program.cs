@@ -1,10 +1,10 @@
-using Magnum_web_application;
-using Magnum_web_application.Data;
-using Magnum_web_application.Models;
-using Magnum_web_application.Repository;
-using Magnum_web_application.Repository.IRepository;
-using Magnum_web_application.Service;
-using Magnum_web_application.Service.IServices;
+using Magnum_API_web_application;
+using Magnum_API_web_application.Data;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Repository;
+using Magnum_API_web_application.Repository.IRepository;
+using Magnum_API_web_application.Service;
+using Magnum_API_web_application.Service.IServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

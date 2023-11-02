@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Magnum_web_application.Models
+namespace Magnum_API_web_application.Models
 {
 	public class Member
 	{
@@ -15,10 +14,12 @@ namespace Magnum_web_application.Models
 		public int PhoneNumber { get; set; }
 		[Required]
 		public int Age { get; set; }
-		public bool VIP { get; set; } = false;
-
 		public DateTime DateUpdated { get; set; }
 		public DateTime DateCreated { get; set; } = DateTime.UtcNow;
+		public int RankId { get; set; }
+		
+		public DateTime LastActiveDate { get; set; }
+		public List<DateTime> ActiveDates { get; set; }
 
 		//navigation properties
 
@@ -26,6 +27,7 @@ namespace Magnum_web_application.Models
 		public ICollection<TrainingSession> TrainingSession { get; set; }
 		public ICollection<ActiveMember> ActiveMember{ get; set; }
 		public ICollection<UnpaidMonth> UnpaidMonth { get; set; }
-		public ICollection<Rank> Rank { get; set; }
+		public Rank Rank { get; set; }
+		public ICollection<Competition_Member_Result> Competition_Member_Result { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
-﻿using Magnum_web_application.Models.DTO;
+﻿using Magnum_API_web_application.Models.DTO;
 
-namespace Magnum_web_application.Repository.IRepository
+namespace Magnum_API_web_application.Repository.IRepository
 {
 	public interface IUserRepository
 	{

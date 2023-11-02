@@ -1,8 +1,8 @@
-﻿using Magnum_web_application.Models;
+﻿using Magnum_API_web_application.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
-namespace Magnum_web_application.Repository.IRepository
+namespace Magnum_API_web_application.Repository.IRepository
 {
 	public interface IRepository <T> where T : class
 	{

@@ -1,44 +1,44 @@
-﻿using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
-using Magnum_web_application.Repository.IRepository;
-using Magnum_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Repository.IRepository;
+using Magnum_API_web_application.Service.IServices;
 using System.Net;
 
-namespace Magnum_web_application.Service
+namespace Magnum_API_web_application.Service
 {
     public class MemberService : IMemberService
     {
-        public ApiResponse apiResponse;
-        private readonly IMemberRepository repository;
+        public ApiResponse _apiResponse;
+        private readonly IMemberRepository _repository;
 
         public MemberService(IMemberRepository repository)
         {
-            this.apiResponse = new();
-            this.repository = repository;
+			_apiResponse = new();
+			_repository = repository;
         }
 
         public async Task<ApiResponse> CreateMemberIfValidAsync(MemberDTO memberDTO)
         {
             try
             {
-                if (await repository.GetByIdAsync(u => u.Name == memberDTO.Name) != null)
+                if (await _repository.GetByIdAsync(u => u.Name == memberDTO.Name) != null)
                 {
-                    apiResponse.BadRequest();
-                    apiResponse.ErrorMessage = "Member with same name already exists";
-                    return apiResponse;
+                    _apiResponse.BadRequest();
+					_apiResponse.ErrorMessage = "Member with same name already exists";
+                    return _apiResponse;
                 }
 
                 Member model = new();
                 memberDTO.mapMember(memberDTO, model);
 
-                await repository.CreateAsync(model);
-                await repository.SaveAsync();
+                await _repository.CreateAsync(model);
+                await _repository.SaveAsync();
 
-                return apiResponse.Create(model);
+                return _apiResponse.Create(memberDTO);
             }
             catch (Exception e)
             {
-                return apiResponse.Unauthorize(e);
+                return _apiResponse.Unauthorize(e);
             }
         }
 
@@ -46,21 +46,21 @@ namespace Magnum_web_application.Service
         {
             try
             {
-                Member member = await repository.GetByIdAsync(u => u.Id == memberId);
+                Member member = await _repository.GetByIdAsync(u => u.Id == memberId);
                 if (member == null)
                 {
-                    return apiResponse.NotFound(member);
+                    return _apiResponse.NotFound(member);
                 }
 
-                await repository.DeleteAsync(member);
-                await repository.SaveAsync();
+                await _repository.DeleteAsync(member);
+                await _repository.SaveAsync();
 
-                apiResponse.StatusCode = HttpStatusCode.NoContent;
-                return apiResponse;
+				_apiResponse.StatusCode = HttpStatusCode.NoContent;
+                return _apiResponse;
             }
             catch (Exception e)
             {
-                return apiResponse.Unauthorize(e);
+                return _apiResponse.Unauthorize(e);
             }
         }
 
@@ -68,17 +68,17 @@ namespace Magnum_web_application.Service
         {
             try
             {
-                Member member = await repository.GetByIdAsync(u => u.Id == memberId);
+                Member member = await _repository.GetByIdAsync(u => u.Id == memberId);
                 if (member == null)
                 {
-                    return apiResponse.NotFound(member);
+                    return _apiResponse.NotFound(member);
                 }
 
-                return apiResponse.Get(member);
+                return _apiResponse.Get(member);
             }
             catch (Exception e)
             {
-                return apiResponse.Unauthorize(e);
+                return _apiResponse.Unauthorize(e);
             }
         }
 
@@ -86,18 +86,18 @@ namespace Magnum_web_application.Service
         {
             try
             {
-                List<Member> memberList = await repository.GetAllAsync();
+                List<Member> memberList = await _repository.GetAllAsync();
 
                 if (memberList.Count <= 0)
                 {
-                    apiResponse.NotFound(memberList);
+					_apiResponse.NotFound(memberList);
                 }
 
-                return apiResponse.Get(memberList);
+                return _apiResponse.Get(memberList);
             }
             catch (Exception e)
             {
-                return apiResponse.Unauthorize(e);
+                return _apiResponse.Unauthorize(e);
             }
         }
 
@@ -105,21 +105,21 @@ namespace Magnum_web_application.Service
         {
             try
             {
-                Member member = await repository.GetByIdAsync(u => u.Id == memberId);
+                Member member = await _repository.GetByIdAsync(u => u.Id == memberId);
                 if (member == null)
                 {
-                    return apiResponse.NotFound(member);
+                    return _apiResponse.NotFound(member);
                 }
 
                 memberDTO.mapMember(memberDTO, member);
-                await repository.Update(member);
-                await repository.SaveAsync();
+				await _repository.Update(member);
+                await _repository.SaveAsync();
 
-                return apiResponse.Update(member);
+                return _apiResponse.Update(member);
             }
             catch (Exception e)
             {
-                return apiResponse.Unauthorize(e);
+                return _apiResponse.Unauthorize(e);
             }
         }
     }

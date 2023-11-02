@@ -1,14 +1,14 @@
-﻿using Magnum_web_application.Data;
-using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
-using Magnum_web_application.Repository.IRepository;
+﻿using Magnum_API_web_application.Data;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Repository.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Magnum_web_application.Repository
+namespace Magnum_API_web_application.Repository
 {
 	public class UserRepository : IUserRepository
 	{
@@ -24,23 +24,15 @@ namespace Magnum_web_application.Repository
         public bool IsUnique(string username)
 		{
 			var user = _context.Users.FirstOrDefault(u=> u.Name == username);
-
-			if(user == null)
-			{
-				return true;
-			}
-			
-			return false;
+			return user == null;
 		}
 
 		public async Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO)
 		{
 			User user = _context.Users.FirstOrDefault(u => u.Name == loginRequestDTO.Username && u.Password == loginRequestDTO.Password);
 			if(user == null)
-			{
 				return null;
-			}
-
+			
 			//create JWT
 
 			var tokenHandler = new JwtSecurityTokenHandler();

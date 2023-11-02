@@ -1,54 +1,46 @@
-﻿using Magnum_web_application.Models;
-using Magnum_web_application.Models.DTO;
-using Magnum_web_application.Repository.IRepository;
-using Magnum_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Repository;
+using Magnum_API_web_application.Repository.IRepository;
+using Magnum_API_web_application.Service.IServices;
 
-namespace Magnum_web_application.Service
+namespace Magnum_API_web_application.Service
 {
 	public class RankService : IRankService
 	{
-		public ApiResponse apiResponse;
-		private readonly IRankRepository rankRepository;
+		public ApiResponse _apiResponse;
+		private readonly IRankRepository _rankRepository;
 
 		public RankService(IRankRepository rankRepository)
 		{
-			this.rankRepository = rankRepository;
-			this.apiResponse = new();
+			_rankRepository = rankRepository;
+			_apiResponse = new();
 		}
 
-		public async Task<ApiResponse> CreateRankAsync(RankDTO rankDTO, int memberId)
+		public async Task<ApiResponse> CreateRankAsync(RankDTO rankDTO)
 		{
-			List<Rank> ranks = await rankRepository.GetAllAsync(r => r.MemberId == memberId);
-			
-			foreach (Rank rank in ranks)
-			{
-				if (rank.MemberId == memberId && rank.SkillRank == rankDTO.SkillRank)
-				{
-					return apiResponse.BadRequest();
-				}
-			}
-			
+			List<Rank> ranks = await _rankRepository.GetAllAsync();
 			Rank model = new()
 			{
-				SkillRank = rankDTO.SelectRank(rankDTO.SkillRank),
-				MemberId = memberId,
-				Promotion = DateTime.UtcNow
+				SkillRank = rankDTO.SkillRank
 			};
 
-			await rankRepository.CreateAsync(model);
-			return apiResponse.Create(rankDTO);
+			foreach (var rank in ranks)
+			{
+				if(rank == model)
+				{
+					return _apiResponse.BadRequest();
+				}
+			}
+
+			await _rankRepository.CreateAsync(model);
+			return _apiResponse.Create(rankDTO);
 		}
 
-		public async Task<ApiResponse> GetAllRanksAsync(int memberId)
+		public async Task<ApiResponse> GetAllRanksAsync()
 		{
-			List<Rank> listOfRanks = await rankRepository.GetAllAsync(r => r.MemberId == memberId);
-			return apiResponse.Get(listOfRanks);
-		}
-
-		public async Task<ApiResponse> GetRankAsync(int memberId)
-		{
-			Rank rank = await rankRepository.GetByIdAsync(r => r.MemberId == memberId);
-			return apiResponse.Get(rank);
+			List<Rank> ranks = await _rankRepository.GetAllAsync();
+			return _apiResponse.Get(ranks);
 		}
 	}
 }

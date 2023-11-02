@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Magnum_web_application.Models
+namespace Magnum_API_web_application.Models
 {
 	public class ApiResponse
 	{
