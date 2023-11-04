@@ -9,6 +9,8 @@ from basic CRUD operations to complex management of payments, attendance etc.
 -Entity Framework Core as ORM and LINQ for flexibility  
 -SQL db for storing data  
 -Clean Architecture approach for separation of concernes
+
+-Currently implementing CQRS pattern with Mediatr
   
 **Clone the repository**  
 

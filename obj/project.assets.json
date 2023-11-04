@@ -3516,7 +3516,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vukla\\.nuget\\packages\\": {}
+    "C:\\Users\\vukla\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3527,8 +3528,12 @@
       "packagesPath": "C:\\Users\\vukla\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\vukla\\source\\repos\\MagnumBjjAPI\\Magnum web application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\vukla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
