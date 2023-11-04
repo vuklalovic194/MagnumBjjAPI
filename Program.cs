@@ -1,6 +1,5 @@
 using Magnum_API_web_application;
 using Magnum_API_web_application.Data;
-using Magnum_API_web_application.Models;
 using Magnum_API_web_application.Repository;
 using Magnum_API_web_application.Repository.IRepository;
 using Magnum_API_web_application.Service;
@@ -9,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.ComponentModel;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

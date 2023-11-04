@@ -18,8 +18,8 @@ namespace Magnum_API_web_application.Models
 		public DateTime DateCreated { get; set; } = DateTime.UtcNow;
 		public int RankId { get; set; }
 		
-		public DateTime LastActiveDate { get; set; }
-		public List<DateTime> ActiveDates { get; set; }
+		//public DateTime LastActiveDate { get; set; }
+		//public List<DateTime> ActiveDates { get; set; }
 
 		//navigation properties
 
