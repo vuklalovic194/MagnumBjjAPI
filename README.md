@@ -10,7 +10,7 @@ from basic CRUD operations to complex management of payments, attendance etc.
 -SQL db for storing data  
 -Clean Architecture approach for separation of concernes
 
--Currently implementing CQRS pattern with Mediatr
+-Currently implementing CQRS pattern with Mediatr library
   
 **Clone the repository**  
 
