@@ -12,14 +12,14 @@
     },
     "https": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Users\\vukla\\source\\repos\\MagnumBjjAPI\\Magnum web application",
+      "workingDirectory": "C:\\Users\\vukla\\source\\repos\\vuklalovic194\\MagnumBjjAPI",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:5000"
+      "applicationUrl": "https://localhost:7001"
     },
     "IIS Express": {
       "commandName": "IISExpress",
