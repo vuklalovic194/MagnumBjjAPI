@@ -19,7 +19,7 @@ namespace Magnum_API_web_application.Controllers
 			this.memberService = memberService;
 		}
 
-		[HttpGet(Name ="GetMembers")]
+		[HttpGet(Name = "GetMembers")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		//[Authorize]
