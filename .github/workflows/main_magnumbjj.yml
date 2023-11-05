@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: C:\Users\vukla\source\repos\vuklalovic194\MagnumBjjAPI
 
   deploy:
     runs-on: windows-latest
