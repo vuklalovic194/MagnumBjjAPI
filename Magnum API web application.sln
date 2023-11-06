@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34018.315
+VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnum API web application", "C:\Users\vukla\source\repos\MagnumBjjAPI\Magnum web application\Magnum API web application.csproj", "{EF5286BD-3EED-408E-8B55-E02DF64C93FF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnum_Bjj", "..\MagnumBjj\Magnum_Bjj.csproj", "{89DC0E69-5BA9-487B-93E7-5CAFD078E87E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnum_Utillity", "..\SD\Magnum_Utillity.csproj", "{6E5E735D-4525-4440-B127-B37DB49DE832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnum API web application", "Magnum API web application.csproj", "{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF5286BD-3EED-408E-8B55-E02DF64C93FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF5286BD-3EED-408E-8B55-E02DF64C93FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF5286BD-3EED-408E-8B55-E02DF64C93FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF5286BD-3EED-408E-8B55-E02DF64C93FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89DC0E69-5BA9-487B-93E7-5CAFD078E87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89DC0E69-5BA9-487B-93E7-5CAFD078E87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89DC0E69-5BA9-487B-93E7-5CAFD078E87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89DC0E69-5BA9-487B-93E7-5CAFD078E87E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E5E735D-4525-4440-B127-B37DB49DE832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E5E735D-4525-4440-B127-B37DB49DE832}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E5E735D-4525-4440-B127-B37DB49DE832}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E5E735D-4525-4440-B127-B37DB49DE832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {50061A47-D0FD-47F9-A708-F840B9166B58}
+		SolutionGuid = {DED1DC44-0299-4350-AB2E-EFA321F23EAE}
 	EndGlobalSection
 EndGlobal
