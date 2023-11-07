@@ -25,7 +25,7 @@ builder.Services.AddScoped<ITrainingSessionRepository, TrainingSessionRepository
 builder.Services.AddScoped<IUnpaidMonthRepository, UnpaidMonthRepository>();
 builder.Services.AddScoped<IRankRepository, RankRepository>();
 
-builder.Services.AddScoped<IActiveMemberService, ActiveMemberService>();
+//builder.Services.AddScoped<IActiveMemberService, ActiveMemberService>();
 builder.Services.AddScoped<IFeeService, FeeService>();
 builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<ITrainingService, TrainingService>();

@@ -49,7 +49,7 @@ namespace Magnum_API_web_application.Controllers
 				var result = await _mediator.Send(command);
 				return Ok(result);
 			}
-			return Ok(apiResponse.BadRequest());
+			return Ok(_apiResponse.BadRequest());
 		}
 
 		[HttpPut("{id}", Name = "UpdateMember")]
@@ -63,7 +63,7 @@ namespace Magnum_API_web_application.Controllers
 				var result = await _mediator.Send(command);
 				return Ok(result);
 			}
-			return Ok(apiResponse.BadRequest());
+			return Ok(_apiResponse.BadRequest());
 		}
 
 		[HttpDelete("{id}", Name = "DeleteMember")]

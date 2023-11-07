@@ -9,11 +9,11 @@ namespace Magnum_API_web_application.Controllers
 	public class BaseController : ControllerBase
 	{
 		protected readonly IMediator _mediator;
-		protected ApiResponse apiResponse;
+		protected ApiResponse _apiResponse;
 
 		public BaseController(IMediator mediator) 
 		{
-			apiResponse = new();
+			_apiResponse = new();
 			_mediator = mediator;
 		}
 	}

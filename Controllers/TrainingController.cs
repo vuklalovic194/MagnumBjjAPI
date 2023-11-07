@@ -1,29 +1,27 @@
-﻿using Magnum_API_web_application.Models;
-using Magnum_API_web_application.Service.IServices;
+﻿using Magnum_API_web_application.Command.Training_Commands;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Queries.Training_Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Magnum_API_web_application.Controllers
 {
 	[Route("api/Trainings")]
 	[ApiController]
-	public class TrainingController : ControllerBase
+	public class TrainingController : BaseController
 	{
-		private readonly ITrainingService trainingService;
-		protected ApiResponse apiResponse;
+        public TrainingController(IMediator mediator) : base(mediator)
+        {
+        }
 
-		public TrainingController(ITrainingService trainingService)
-		{
-			apiResponse = new();
-			this.trainingService = trainingService;
-		}
-
-		[HttpGet("{id}")]
+        [HttpGet("{id}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task <ActionResult<ApiResponse>> GetSessionsByMemberId(int id, int month = 0)
 		{
-			apiResponse = await trainingService.GetSessionsByMemberIdAsync(id, month);
-			return Ok(apiResponse);
+			var query = new GetSessionsByMemberIdQuery(id, month);
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 
 		[HttpGet("SessionsHistory/{id}")]
@@ -31,18 +29,20 @@ namespace Magnum_API_web_application.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> GetSessionsHistory(int id)
 		{
-			apiResponse = await trainingService.GetSessionHistoryAsync(id);
-			return Ok(apiResponse);
+			var query = new GetSessionsHistoryQuery(id);
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
-		public async Task<IActionResult> Create(List<int> memberIds)
+		public async Task<IActionResult> Create(List<int> membersId)
 		{
-			apiResponse = await trainingService.CreateSessionAsync(memberIds);
-			return Ok(apiResponse);
+			var command = new CreateTrainingSessionCommand(membersId);
+			var result = await _mediator.Send(command);
+			return Ok(result);
 		}
 
 		[HttpDelete("{id}")]
@@ -51,8 +51,9 @@ namespace Magnum_API_web_application.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task <ActionResult> Delete(DateTime date)
 		{
-			apiResponse = await trainingService.DeleteSessionAsync(date);
-			return Ok(apiResponse);
+			var command = new DeleteTrainingSessionCommand(date);
+			var result = await _mediator.Send(command);
+			return Ok(result);
 		}
 	}
 }

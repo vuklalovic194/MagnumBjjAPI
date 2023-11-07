@@ -27,7 +27,7 @@ namespace Magnum_API_web_application.Handler
 					return _apiResponse.NotFound(memberList);
 				}
 				
-				_apiResponse.Response = memberList;
+				_apiResponse.Get(memberList);
 
 				return _apiResponse;
 			}
