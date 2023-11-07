@@ -9,7 +9,7 @@ from basic CRUD operations to complex management of payments, attendance etc.
 -Entity Framework Core as ORM and LINQ for flexibility  
 -SQL db for storing data  
 
--Currently implementing CQRS pattern with Mediatr
+-Implementing CQRS pattern with Mediatr
   
 **Clone the repository**  
 
