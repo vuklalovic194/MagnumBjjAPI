@@ -1,6 +1,9 @@
-﻿using Magnum_API_web_application.Models;
+﻿using Magnum_API_web_application.Command;
+using Magnum_API_web_application.Handler;
+using Magnum_API_web_application.Models;
 using Magnum_API_web_application.Models.DTO;
-using Magnum_API_web_application.Service.IServices;
+using Magnum_API_web_application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,15 +11,10 @@ namespace Magnum_API_web_application.Controllers
 {
     [Route("api/Members")]
 	[ApiController]
-	public class MemberController : ControllerBase
+	public class MemberController : BaseController
 	{
-		private readonly IMemberService memberService;
-		protected ApiResponse apiResponse;
-
-		public MemberController(IMemberService memberService)
+		public MemberController(IMediator mediator) : base(mediator)
 		{
-			apiResponse = new();
-			this.memberService = memberService;
 		}
 
 		[HttpGet(Name = "GetMembers")]
@@ -25,8 +23,9 @@ namespace Magnum_API_web_application.Controllers
 		//[Authorize]
 		public async Task<ActionResult<ApiResponse>> GetMembers()
 		{
-			apiResponse = await memberService.GetMembersAsync();
-			return Ok(apiResponse);
+			var query = new GetAllMembersQuery();
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 
 		[HttpGet("{id}", Name = "GetMember")]
@@ -34,8 +33,9 @@ namespace Magnum_API_web_application.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<ActionResult<ApiResponse>> GetMember(int id)
 		{
-			apiResponse = await memberService.GetMemberByIdAsync(id);
-			return Ok(apiResponse);
+			var query = new GetMemberByIdQuery(id);
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 
 		[HttpPost(Name = "CreateMember")]
@@ -45,8 +45,9 @@ namespace Magnum_API_web_application.Controllers
 		{
 			if(ModelState.IsValid)
 			{
-				apiResponse = await memberService.CreateMemberIfValidAsync(memberDTO);
-				return Ok(apiResponse);
+				var command =  new CreateMemberRequest(memberDTO);
+				var result = await _mediator.Send(command);
+				return Ok(result);
 			}
 			return Ok(apiResponse.BadRequest());
 		}
@@ -58,7 +59,9 @@ namespace Magnum_API_web_application.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				apiResponse = await memberService.UpdateMemberAsync(updateDTO, id);
+				var command = new UpdateMemberRequest(updateDTO, id);
+				var result = await _mediator.Send(command);
+				return Ok(result);
 			}
 			return Ok(apiResponse.BadRequest());
 		}
@@ -69,8 +72,9 @@ namespace Magnum_API_web_application.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<ActionResult> Delete(int id)
 		{
-			apiResponse = await memberService.DeleteMemberAsync(id);
-			return Ok(apiResponse);
+			var command = new DeleteMemberRequest(id);
+			var result = await _mediator.Send(command);
+			return Ok(result);
 		}
 	}
 }

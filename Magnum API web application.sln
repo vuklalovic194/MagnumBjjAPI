@@ -5,6 +5,12 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnum API web application", "Magnum API web application.csproj", "{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnum.Domain", "..\Magnum.Domain\Magnum.Domain.csproj", "{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{78CF14A1-7A35-49C1-8B5A-F15E86821C9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EB5F75F7-F348-4434-AC5E-993A0C89B83C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4} = {78CF14A1-7A35-49C1-8B5A-F15E86821C9D}
+		{26C6FB5C-72B8-456B-B4CF-07EFCF34E56E} = {EB5F75F7-F348-4434-AC5E-993A0C89B83C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DED1DC44-0299-4350-AB2E-EFA321F23EAE}

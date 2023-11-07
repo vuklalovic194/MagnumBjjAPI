@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Iuis7BydIkmUZlFFcViYOnlf1EimklrQO2FIwMoutBF99L1/u+Rcu4xRXU0sOG5pK9DyWrdnzNQqCh+mo9Mqrw==",
+  "dgSpecHash": "KtQBGjXZFl0ItdOXIffqujz61o18bb1ye+PfaNQ1DvASbSJaE1+7EuBpfEStKElSYK9/1Q+vy1lXFphKgHkNLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vukla\\source\\repos\\vuklalovic194\\MagnumBjjAPI\\Magnum API web application.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\vukla\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\vukla\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\vukla\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\vukla\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\vukla\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\vukla\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.11\\microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "C:\\Users\\vukla\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\7.0.11\\microsoft.aspnetcore.jsonpatch.7.0.11.nupkg.sha512",
     "C:\\Users\\vukla\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
