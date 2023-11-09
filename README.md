@@ -5,11 +5,10 @@ from basic CRUD operations to complex management of payments, attendance etc.
 **Technologies used**  
 
 -ASP .NET Core Web API (RESTful API)  
+-Implementing CQRS pattern with Mediatr
 -JWT to handle authentication and authorization  
 -Entity Framework Core as ORM and LINQ for flexibility  
--SQL db for storing data  
-
--Implementing CQRS pattern with Mediatr
+-Relational database (SQL server management studio)
   
 **Clone the repository**  
 

@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnum API web application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{78CF14A1-7A35-49C1-8B5A-F15E86821C9D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A364FB5B-2EA4-45A3-877D-3B505EAB9640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnum.API_UnitTest", "..\Magnum.API_UnitTest\Magnum.API_UnitTest.csproj", "{E1AD4573-0203-4ED7-9F1B-45300283D9DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1AD4573-0203-4ED7-9F1B-45300283D9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AD4573-0203-4ED7-9F1B-45300283D9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1AD4573-0203-4ED7-9F1B-45300283D9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AD4573-0203-4ED7-9F1B-45300283D9DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D2C03BC3-700E-4037-BDCF-881BA0BB9BA4} = {78CF14A1-7A35-49C1-8B5A-F15E86821C9D}
+		{E1AD4573-0203-4ED7-9F1B-45300283D9DA} = {A364FB5B-2EA4-45A3-877D-3B505EAB9640}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DED1DC44-0299-4350-AB2E-EFA321F23EAE}

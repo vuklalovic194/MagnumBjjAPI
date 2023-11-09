@@ -26,8 +26,17 @@ namespace Magnum_API_web_application.Handler
 				{
 					return _apiResponse.NotFound(memberList);
 				}
+
+				//pagination
+				int pageSize = 10;
 				
-				_apiResponse.Get(memberList);
+				List<Member> paginatedMembers = 
+					memberList
+					.Skip((request.Page - 1) * pageSize)
+					.Take(pageSize)
+					.ToList();
+
+				_apiResponse.Get(paginatedMembers);
 
 				return _apiResponse;
 			}

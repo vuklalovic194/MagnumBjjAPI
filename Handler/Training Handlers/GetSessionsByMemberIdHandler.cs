@@ -10,6 +10,12 @@ namespace Magnum_API_web_application.Handler.Training_Handlers
 		private readonly ITrainingSessionRepository _trainingSessionRepository;
 		private ApiResponse _apiResponse;
 
+		public GetSessionsByMemberIdHandler(ITrainingSessionRepository trainingSessionRepository)
+		{
+			_trainingSessionRepository = trainingSessionRepository;
+			_apiResponse = new ApiResponse();
+		}
+
 		public async Task<ApiResponse> Handle(GetSessionsByMemberIdQuery request, CancellationToken cancellationToken)
 		{
 			List<TrainingSession> trainingSession = await _trainingSessionRepository.GetAllAsync(u => u.MemberId == request.MemberId);

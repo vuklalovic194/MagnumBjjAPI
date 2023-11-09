@@ -3,7 +3,9 @@
 	public class MemberDTO
 	{
 		public string Name { get; set; }
-		public string Address { get; set; }
+		public string StreetAddress { get; set; }
+		public string City { get; set; }
+		public string Country { get; set; }
 		public string ImageUrl { get; set; }
 		public int PhoneNumber { get; set; }
 		public int Age { get; set; }
@@ -11,7 +13,9 @@
 
 		public void mapMember(MemberDTO memberDTO, Member member)
 		{
-			member.Address = memberDTO.Address;
+			member.StreetAddress = memberDTO.StreetAddress;
+			member.City = memberDTO.City;
+			member.Country = memberDTO.Country;
 			member.Name = memberDTO.Name;
 			member.ImageUrl = memberDTO.ImageUrl;
 			member.PhoneNumber = memberDTO.PhoneNumber;

@@ -1,38 +1,28 @@
 ﻿using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Queries.Unpaid_Month_Queries;
 using Magnum_API_web_application.Service;
 using Magnum_API_web_application.Service.IServices;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Magnum_API_web_application.Controllers
 {
     [Route("api/UnpaidMonth")]
 	[ApiController]
-	public class UnpaidMonthController : ControllerBase
+	public class UnpaidMonthController : BaseController
 	{
-		private readonly IUnpaidMonthService unpaidMonthService;
-		protected ApiResponse apiResponse;
+        public UnpaidMonthController(IMediator mediator) : base(mediator)
+        {
+        }
 
-		public UnpaidMonthController(IUnpaidMonthService unpaidMonthService)
-		{
-			apiResponse = new ApiResponse();
-			this.unpaidMonthService = unpaidMonthService;
-		}
-
-		[HttpGet("GetAll")]
+        [HttpGet("GetAll")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> GetUnpaidMonths()
 		{
-			try
-			{
-				apiResponse = await unpaidMonthService.GetAllUnpaidMonthsAsync();
-				return Ok(apiResponse);
-			}
-			catch (Exception e)
-			{
-				apiResponse.Unauthorize(e);
-				return Ok(apiResponse);
-			}
+			var query = new GetUnpaidMonthsQuery();
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 
 		[HttpGet("Get/{id}")]
@@ -40,16 +30,9 @@ namespace Magnum_API_web_application.Controllers
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> GetUnpaidMonthsByMemberId(int id)
 		{
-			try
-			{
-				apiResponse = await unpaidMonthService.GetUnpaidMonthsById(id);
-				return Ok(apiResponse);
-			}
-			catch (Exception e)
-			{
-				apiResponse.Unauthorize(e);
-				return Ok(apiResponse);
-			}
+			var query = new GetUnpaidMonthsByIdQuery(id);
+			var result = await _mediator.Send(query);
+			return Ok(result);
 		}
 	}
 }

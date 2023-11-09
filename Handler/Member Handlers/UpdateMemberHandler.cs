@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Magnum_API_web_application.Handler
 {
-	public class UpdateMemberHandler : IRequestHandler<UpdateMemberRequest, ApiResponse>
+	public class UpdateMemberHandler : IRequestHandler<UpdateMemberCommand, ApiResponse>
 	{
 		private readonly IMemberRepository _repository;
 		private readonly ApiResponse _apiResponse;
@@ -17,7 +17,7 @@ namespace Magnum_API_web_application.Handler
 			_apiResponse = new ApiResponse();
 		}
 
-		public async Task<ApiResponse> Handle(UpdateMemberRequest request, CancellationToken cancellationToken)
+		public async Task<ApiResponse> Handle(UpdateMemberCommand request, CancellationToken cancellationToken)
 		{
 			try
 			{

@@ -9,7 +9,9 @@ namespace Magnum_API_web_application.Models
 		public string Name { get; set; }
 		[Required]
 		[MaxLength(100)]
-		public string Address { get; set; }
+		public string StreetAddress { get; set; }
+		public string City { get; set; }
+		public string Country { get; set; }
 		public string ImageUrl { get; set; }
 		public int PhoneNumber { get; set; }
 		[Required]
@@ -17,9 +19,6 @@ namespace Magnum_API_web_application.Models
 		public DateTime DateUpdated { get; set; }
 		public DateTime DateCreated { get; set; } = DateTime.UtcNow;
 		public int RankId { get; set; }
-		
-		//public DateTime LastActiveDate { get; set; }
-		//public List<DateTime> ActiveDates { get; set; }
 
 		//navigation properties
 

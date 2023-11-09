@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Magnum_API_web_application.Handler
 {
-	public class DeleteMemberHandler : IRequestHandler<DeleteMemberRequest, ApiResponse>
+	public class DeleteMemberHandler : IRequestHandler<DeleteMemberCommand, ApiResponse>
 	{
 		private readonly IMemberRepository _repository;
 		private readonly ApiResponse _apiResponse;
@@ -17,7 +17,7 @@ namespace Magnum_API_web_application.Handler
 			_apiResponse = new ApiResponse();
 		}
 
-		public async Task<ApiResponse> Handle(DeleteMemberRequest request, CancellationToken cancellationToken)
+		public async Task<ApiResponse> Handle(DeleteMemberCommand request, CancellationToken cancellationToken)
 		{
 			try
 			{

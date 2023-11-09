@@ -12,6 +12,14 @@ namespace Magnum_API_web_application.Handler.Training_Handlers
 		private readonly ITrainingSessionRepository _trainingSessionRepository;
 		private ApiResponse _apiResponse;
 
+		public DeleteTrainingSessionHandler(ITrainingSessionRepository trainingSessionRepository)
+		{
+			_trainingSessionRepository = trainingSessionRepository;
+			_apiResponse = new ApiResponse();
+		}
+
+		
+
 		public async Task<ApiResponse> Handle(DeleteTrainingSessionCommand request, CancellationToken cancellationToken)
 		{
 			TrainingSession trainingSession = await _trainingSessionRepository.GetByIdAsync(u => u.SessionDate == request.Date);
