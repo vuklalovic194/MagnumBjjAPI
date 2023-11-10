@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{78CF14A1-7A3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A364FB5B-2EA4-45A3-877D-3B505EAB9640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnum.API_UnitTest", "..\Magnum.API_UnitTest\Magnum.API_UnitTest.csproj", "{E1AD4573-0203-4ED7-9F1B-45300283D9DA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
