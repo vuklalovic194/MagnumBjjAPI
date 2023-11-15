@@ -1,10 +1,16 @@
 using Magnum_API_web_application;
 using Magnum_API_web_application.Data;
+using Magnum_API_web_application.Handler;
+using Magnum_API_web_application.Models;
+using Magnum_API_web_application.Models.DTO;
+using Magnum_API_web_application.Queries;
 using Magnum_API_web_application.Repository;
 using Magnum_API_web_application.Repository.IRepository;
 using Magnum_API_web_application.Service;
 using Magnum_API_web_application.Service.IServices;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -39,6 +45,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => {
 		builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null); 
 	});
 });
+
 
 var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 
@@ -106,6 +113,42 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapGet("api/Members", async (IMemberRepository repo) =>
+{
+	return Results.Ok(await repo.GetAllAsync());
+});
+
+app.MapGet("api/Member/{id:int}", async (int id, IMemberRepository repo) =>
+{
+	return Results.Ok(await repo.GetByIdAsync(u => u.Id == id));
+});
+
+app.MapPut("api/UpdatedMember/{id:int}", async (int id, IMemberRepository repo, [FromBody] MemberDTO dto) =>
+{
+	Member member = await repo.GetByIdAsync(u => u.Id == id);
+	dto.mapMember(dto, member);
+	await repo.Update(member);
+	await repo.SaveAsync();
+	return Results.NoContent();
+});
+
+app.MapPost("api/CreatedMember", async (IMemberRepository repo, [FromBody] MemberDTO dto) => 
+{
+	Member member = new();
+	dto.mapMember(dto, member);
+	await repo.CreateAsync(member);
+	await repo.SaveAsync();
+	return Results.Created($"api/CreatedMember/{member.Id}", member);
+});
+
+app.MapDelete("api/Member", async (int id, IMemberRepository repo) =>
+{
+	Member member = await repo.GetByIdAsync(u => u.Id == id);
+	await repo.DeleteAsync(member);
+	await repo.SaveAsync();
+	return Results.NoContent();
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

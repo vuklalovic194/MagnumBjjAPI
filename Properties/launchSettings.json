@@ -12,7 +12,7 @@
     },
     "https": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Users\\vukla\\source\\repos\\vuklalovic194\\MagnumBjjAPI",
+      "workingDirectory": "C:\\Users\\vukla\\source\\repos\\MagnumBjjAPI",
       "launchBrowser": true,
       "launchUrl": "",
       "environmentVariables": {

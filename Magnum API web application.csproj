@@ -5,7 +5,7 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Magnum_API_web_application</RootNamespace>
-    <BaseOutputPath>C:\Users\vukla\source\repos\MagnumBjjAPI\Magnum web application\bin</BaseOutputPath>
+    <BaseOutputPath>C:\Users\vukla\source\repos\MagnumBjjAPI\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
