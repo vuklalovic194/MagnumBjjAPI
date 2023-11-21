@@ -30,6 +30,7 @@ builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<ITrainingSessionRepository, TrainingSessionRepository>();
 builder.Services.AddScoped<IUnpaidMonthRepository, UnpaidMonthRepository>();
 builder.Services.AddScoped<IRankRepository, RankRepository>();
+builder.Services.AddScoped<ICompetitionRepository, CompetitionRepository>();
 
 //builder.Services.AddScoped<IActiveMemberService, ActiveMemberService>();
 builder.Services.AddScoped<IFeeService, FeeService>();
