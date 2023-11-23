@@ -4,6 +4,6 @@ namespace Magnum_API_web_application.Repository.IRepository
 {
 	public interface ICompetitionRepository : IRepository<Competition>
 	{
-		Task<Competition> UpdateAsync(Competition competition);
+		public Task<Competition> UpdateAsync(Competition competition);
 	}
 }

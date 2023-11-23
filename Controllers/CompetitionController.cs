@@ -39,5 +39,21 @@ namespace Magnum_API_web_application.Controllers
 			var result = await _mediator.Send(command);
 			return Ok(result);
 		}
+
+		[HttpDelete]
+		public async Task<ActionResult<ApiResponse>> DeleteCompetition(int id)
+		{
+			var command = new DeleteCompetitionCommand(id);
+			var result = await _mediator.Send(command);
+			return Ok(result);
+		}
+
+		[HttpPut]
+		public async Task<ActionResult<ApiResponse>> UpdateCompetition(int id, [FromBody]CompetitionDTO dto)
+		{
+			var command = new UpdateCompetitionCommand(id, dto);
+			var result = await _mediator.Send(command);
+			return Ok(result);
+		}
     }
 }
