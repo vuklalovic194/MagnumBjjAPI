@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Magnum API web application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b8ed76dce5265018bec99dd5827f69b2fc7329f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Magnum API web application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Magnum API web application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
