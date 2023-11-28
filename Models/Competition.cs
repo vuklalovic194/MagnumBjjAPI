@@ -12,5 +12,17 @@ namespace Magnum_API_web_application.Models
 		public DateTime DateUpdated { get; set; }
 
 		public ICollection<Competition_Member_Result> Competition_Member_Result { get; set; }
+		enum Results
+		{
+			Gold,
+			Silver,
+			Bronze,
+			Participation,
+
+			GoldAbs,
+			SilverAbs,
+			BronzeAbs,
+			ParticipationAbs
+		}
 	}
 }
