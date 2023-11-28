@@ -6,11 +6,5 @@ namespace Magnum_API_web_application.Queries.Competition_Results_Queries
 {
 	public class GetCompetitionResultsQuery : IRequest<ApiResponse>
 	{
-		public CompetitionResultDTO CompetitionResultDTO { get; set; }
-        
-        public GetCompetitionResultsQuery(CompetitionResultDTO dto)
-        {
-            CompetitionResultDTO = dto;
-        }
     }
 }
