@@ -13,7 +13,10 @@
 			result.Id = dto.Id;
 			result.Result = dto.Result;
 			result.CompetitionId = dto.CompetitionId;
-			result.Members = dto.Members;
+			foreach (Member member in Members)
+			{
+				result.Member = member;
+			}
 		}
 	}
 }
